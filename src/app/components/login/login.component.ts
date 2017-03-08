@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router }    from '@angular/router';
 
-import { Hero }                from '../hero';
-import { HeroService }         from '../hero.service';
-import { AppComponent }         from '../app.component';
+import { Hero }                from '../../hero';
+import { HeroService }         from '../../services/hero/hero.service';
+import { AppComponent }         from '../../app.component';
 
 @Component({
   moduleId: module.id,
@@ -12,13 +12,11 @@ import { AppComponent }         from '../app.component';
   styleUrls: [ './login.component.css' ]
 })
 export class LoginComponent implements OnInit{
+
   heroes: Hero[];
   formLogin: string;
-  formPassword: string;
-
+  formPassword: string; 
   errorMessage: string;
-
-  
 
   constructor(
     private heroService: HeroService,
@@ -34,30 +32,23 @@ export class LoginComponent implements OnInit{
     this.getHeroes();
   }
 
-  goLogin(): void 
-  {
-    if(!this.formLogin || !this.formPassword)
-    {
+  goLogin(): void {
+    if ( !this.formLogin || !this.formPassword ) {
       this.formLogin = '';
       this.formPassword = '';
       this.app.logged = false;
       console.log('Error!');
       this.errorMessage = 'Niepoprawna nazwa uzytkownika lub haslo!';
       return;
-    }
-    else
-    {
-     
+    } else {
       for(let login of this.heroes)
       {
-        if(login.name == this.formLogin)
-        {
+        if ( login.name === this.formLogin ){
             this.app.logged = true;
-            var link = ['/dashboard'];
+            let link = ['/dashboard'];
             this.router.navigate(link);
             this.errorMessage = '';
             return;
-       
         }
       }
     }

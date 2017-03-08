@@ -7,15 +7,17 @@ import { AppRoutingModule } from './app-routing.module';
 
 // Imports for loading & configuring the in-memory web api
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService }  from './in-memory-data.service';
+import { InMemoryDataService }  from './services/in-memory-data/in-memory-data.service';
 
 import { AppComponent }         from './app.component';
-import { DashboardComponent }   from './dashboard.component';
-import { HeroesComponent }      from './heroes.component';
-import { HeroDetailComponent }  from './hero-detail.component';
-import { HeroService }          from './hero.service';
-import { HeroSearchComponent }  from './hero-search.component';
-import { LoginComponent }       from './loginComponent/login.component';
+import { DashboardComponent }   from './components/dashboard/dashboard.component';
+import { HeroesComponent }      from './components/heroes/heroes.component';
+import { HeroDetailComponent }  from './components/hero-detail/hero-detail.component';
+import { HeroService }          from './services/hero/hero.service';
+import { HeroSearchComponent }  from './components/hero-search/hero-search.component';
+import { LoginComponent }       from './components/login/login.component';
+import { NewCmpComponent } from './components/new-cmp/new-cmp.component';
+import { Ng2DropdownModule } from 'ng2-material-dropdown';
 
 @NgModule({
   imports: [
@@ -24,6 +26,8 @@ import { LoginComponent }       from './loginComponent/login.component';
     HttpModule,
     InMemoryWebApiModule.forRoot(InMemoryDataService),
     AppRoutingModule,
+    Ng2DropdownModule
+    
     
   ],
   declarations: [
@@ -32,7 +36,10 @@ import { LoginComponent }       from './loginComponent/login.component';
     HeroDetailComponent,
     HeroesComponent,
     HeroSearchComponent,
-    LoginComponent
+    LoginComponent,
+    NewCmpComponent,
+    
+    
   ],
   providers: [ HeroService ],
   bootstrap: [ AppComponent ]

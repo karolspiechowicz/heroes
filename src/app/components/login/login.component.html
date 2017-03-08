@@ -1,0 +1,14 @@
+<div align='center'>
+    <h3>Welcome to Night's Watch Heroes!</h3>
+    <label for="login">Login: </label>
+    <input [(ngModel)]="formLogin" name="login" />
+    <label for="password">Password: </label>
+    <input [(ngModel)]="formPassword" name="password" type="password" (keyup.enter)="goLogin()"/>
+    <button (click)=" goLogin() ">Login</button>
+    <br>
+    <div style='color:red'>{{errorMessage}}</div>
+
+</div>
+<div align='center'>
+
+</div>

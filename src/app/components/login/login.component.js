@@ -39,7 +39,7 @@ var LoginComponent = (function () {
         else {
             for (var _i = 0, _a = this.heroes; _i < _a.length; _i++) {
                 var login = _a[_i];
-                if (login.name == this.formLogin) {
+                if (login.name === this.formLogin) {
                     this.app.logged = true;
                     var link = ['/dashboard'];
                     this.router.navigate(link);
